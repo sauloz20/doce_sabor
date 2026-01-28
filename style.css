@@ -1,0 +1,488 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fcfaf7;
+  color: #2a2a2a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar-premium {
+  background: linear-gradient(90deg, #1a2a4a, #0f1a2d);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.3s ease;
+}
+
+.navbar-premium .navbar-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #c7a932;
+  text-shadow: 0 0 6px rgba(199,169,50,0.7);
+  transition: color 0.3s ease;
+}
+
+.navbar-premium .navbar-brand:hover {
+  color: #a88f2a;
+}
+
+/* NAV LINK */
+.navbar-premium .nav-link {
+  color: #eaeaea;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-premium .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #c7a932;
+  left: 50%;
+  bottom: 0;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.navbar-premium .nav-link:hover {
+  color: #c7a932;
+}
+
+.navbar-premium .nav-link:hover::after {
+  width: 60%;
+}
+
+/* Remova esta parte para o active não ter a linha */
+.navbar-premium .nav-link.active {
+  color: #c7a932; /* Pode manter a cor dourada */
+}
+
+.navbar-premium .nav-link.active::after {
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.navbar-premium .nav-link.active:hover::after {
+  width: 60%; /* Linha aparece no hover mesmo se active */
+}
+/* HERO */
+.hero-premium {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 15px rgba(0,0,0,0.8);
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+/* Botão dourado premium */
+.btn-golden {
+  background: linear-gradient(135deg, #c7a932, #a88f2a);
+  color: white;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(199,169,50,0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-golden:hover,
+.btn-golden:focus {
+  background: linear-gradient(135deg, #a88f2a, #7d6d1f);
+  box-shadow: 0 8px 25px rgba(168,143,42,0.8);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* MAIN E SEÇÕES */
+main.container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  color: #1a2a4a;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(199,169,50,0.4);
+}
+
+/* PRODUTO CARD */
+.produto-card {
+  background: linear-gradient(145deg, #fff, #f7f5f1);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(199,169,50,0.15);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  z-index: 10;
+  will-change: transform;
+}
+
+.produto-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(199,169,50,0.4);
+}
+
+.produto-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  will-change: transform;
+}
+
+.produto-card:hover img {
+  transform: scale(1.1);
+}
+
+.produto-info {
+  padding: 25px 20px;
+  text-align: center;
+  color: #444444;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.produto-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: #1a2a4a;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 3px rgba(199,169,50,0.3);
+}
+
+.produto-info p {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #5a5a5a;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+/* Preço com destaque dourado */
+.preco {
+  color: #c7a932;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-shadow: 0 0 6px rgba(199,169,50,0.8);
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 42, 74, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.modal-content {
+  background: #fcfaf7;
+  padding: 35px 40px;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 0 30px rgba(199,169,50,0.5);
+  position: relative;
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: slideIn 0.5s forwards;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: #f2f6ff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+#formPersonalizacao label.fw-bold {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: block;
+  letter-spacing: 0.05em;
+}
+
+/* FORM SELECTS */
+.form-select {
+  border: 2px solid #c7a932;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: #444444;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+  border-color: #a88f2a;
+  box-shadow: 0 0 10px rgba(168,143,42,0.7);
+  outline: none;
+}
+
+/* RADIO BUTTONS */
+.form-check-input {
+  accent-color: #c7a932;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 8px #a88f2a;
+}
+
+/* BOTÕES MODAL */
+.modal-buttons button {
+  border-radius: 40px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: 1.1rem;
+  padding: 0.8rem 0;
+  box-shadow: 0 5px 15px rgba(199,169,50,0.35);
+  transition: all 0.3s ease;
+}
+
+.modal-buttons .btn-golden {
+  margin-bottom: 1rem;
+}
+
+.modal-buttons .btn-golden:hover {
+  background: linear-gradient(135deg, #a88f2a, #7d6d1f);
+  box-shadow: 0 8px 25px rgba(168,143,42,0.8);
+  transform: translateY(-2px);
+}
+
+.modal-buttons .btn-outline-dark {
+  border-color: #1a2a4a;
+  color: #1a2a4a;
+}
+
+.modal-buttons .btn-outline-dark:hover {
+  background-color: #1a2a4a;
+  color: white;
+  box-shadow: 0 0 10px #1a2a4a;
+}
+
+/* RECHEIO CHECKBOXES */
+#recheioCheckboxes {
+  background-color: #ffffff;
+  border: 2px solid #c7a932;
+  border-radius: 16px;
+  padding: 25px 20px;
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 18px;
+  box-shadow: 0 3px 10px rgba(199,169,50,0.15);
+}
+
+#recheioCheckboxes label {
+  background-color: #f9f7f1;
+  color: #1a2a4a;
+  border-radius: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1.5px solid transparent;
+  box-shadow: inset 0 0 6px rgba(255 255 255 / 0.9);
+}
+
+#recheioCheckboxes label:hover {
+  background-color: #f0eabf;
+  transform: scale(1.05);
+  border-color: #c7a932;
+  box-shadow: 0 0 12px #c7a932;
+}
+
+#recheioCheckboxes input[type="checkbox"] {
+  display: none;
+}
+
+#recheioCheckboxes input[type="checkbox"]:checked + label {
+  background-color: #c7a932;
+  color: white;
+  border-color: #a88f2a;
+  box-shadow: 0 0 15px #a88f2a;
+  font-weight: 700;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .produto-card img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 25px 20px;
+  }
+}
+/* FOOTER */
+footer.premium-footer {
+  background: linear-gradient(90deg, #0f1a2d, #1a2a4a);
+  color: #c7a932;
+  padding: 40px 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  letter-spacing: 0.05em;
+  box-shadow: 0 -4px 15px rgba(199,169,50,0.3);
+  margin-top: 60px;
+  user-select: none;
+}
+
+footer.premium-footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer.premium-footer a {
+  color: #c7a932;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+footer.premium-footer a:hover {
+  color: #a88f2a;
+  text-decoration: underline;
+}
+
+footer.premium-footer .social-icons {
+  margin: 20px 0 10px;
+}
+
+footer.premium-footer .social-icons a {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+footer.premium-footer .social-icons a:hover {
+  color: #a88f2a;
+}
+
+footer.premium-footer small {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #e3d577;
+}
+.social-icons img {
+  height: 28px;
+  width: auto;
+  vertical-align: middle;
+}
